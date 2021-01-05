@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as serviceWorker from './serviceWorker'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -15,3 +16,20 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+serviceWorker.unregister();
+
+class Main extends React.Component {
+
+    render(){
+        let greeting = 'Hi there';
+
+        const user = {
+            name:'yoni',
+            role:'Data Analyst'
+        }
+        return <App greeting={greeting} user = {user} />;
+    }
+}
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Main />, rootElement);
